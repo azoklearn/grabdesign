@@ -7,7 +7,7 @@
   }
 
   const config = window.GRAB_DESIGN_CONFIG || {};
-  const isConfigured = /^https:\/\/chromewebstore\.google\.com\/detail\//.test(config.chromeWebStoreUrl || '') && !/REPLACE/.test(config.chromeWebStoreUrl);
+  const checkoutUrl = /^https:\/\/whop\.com\//.test(config.checkoutUrl || '') ? config.checkoutUrl : '';
 
   document.querySelectorAll('[src^="../assets/"], [href^="../assets/"]').forEach((node) => {
     const attribute = node.hasAttribute('src') ? 'src' : 'href';
@@ -70,10 +70,8 @@
   });
 
   document.querySelectorAll('.js-install').forEach((link) => {
-    if (isConfigured) {
-      link.href = config.chromeWebStoreUrl;
-      link.target = '_blank';
-      link.rel = 'noopener';
+    if (checkoutUrl) {
+      link.href = checkoutUrl;
       return;
     }
     link.href = '#prix';
