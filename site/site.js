@@ -69,6 +69,13 @@
     });
   });
 
+  document.querySelectorAll('.js-try-demo').forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.GrabDesignDemo?.start();
+    });
+  });
+
   const checkoutModal = document.querySelector('[data-checkout-modal]');
   const closeCheckout = () => {
     if (!checkoutModal) return;
