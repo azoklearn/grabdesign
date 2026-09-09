@@ -1,0 +1,9 @@
+{
+  "name": "grab-design",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "check": "node --check background.js && node --check content.js && node --check popup.js && node --check offscreen.js",
+    "package": "rm -rf dist && mkdir -p dist/grab-design/assets && cp manifest.json background.js content.js offscreen.html offscreen.js popup.css popup.html popup.js dist/grab-design/ && cp -R assets/icons dist/grab-design/assets/ && cd dist/grab-design && zip -qr ../grab-design-0.1.0.zip ."
+  }
+}

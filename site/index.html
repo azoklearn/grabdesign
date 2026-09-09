@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Grab Design transforme les éléments web qui vous inspirent en HTML et CSS prêts à coller." />
+    <meta property="og:title" content="Grab Design — capturez le design qui vous inspire" />
+    <meta property="og:description" content="Survolez un élément. Copiez son code. Construisez plus vite." />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="assets/brand-mark.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Grab Design — copiez le design qui vous inspire</title>
+  </head>
+  <body>
+    <main class="landing" id="top">
+      <section class="vbg-hero-ui" aria-label="Présentation de Grab Design">
+        <div class="vbg-video-wrap" aria-hidden="true">
+          <video class="vbg-video" autoplay muted loop playsinline preload="auto">
+            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260815_032550_63bcca7b-697f-4c1c-bf3b-45465f101d01.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        <header class="vbg-header">
+          <a class="vbg-logo" href="#top" aria-label="Grab Design, accueil">
+            <img src="assets/brand-mark.svg" alt="" width="32" height="32" />
+            <span>GRAB DESIGN</span>
+          </a>
+
+          <div class="vbg-chrome-pill vbg-hide-mobile">
+            <span class="vbg-chrome-label">Disponible sur</span>
+            <span class="vbg-chrome-icon" aria-hidden="true"></span>
+            <span class="vbg-chrome-name">Google Chrome</span>
+          </div>
+
+          <div class="vbg-right">
+            <a class="vbg-btn-outline vbg-hide-mobile" href="#prix">Tarifs</a>
+            <a class="vbg-btn-outline vbg-show-mobile js-install" href="#prix">Commencer</a>
+            <span class="try-now-wrap">
+              <a class="try-now-btn js-install" href="#prix" aria-label="Essayer Grab Design">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 6.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-6.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z" clip-rule="evenodd"/></svg>
+                Essayer
+              </a>
+              <span class="try-hint" aria-hidden="true"><span>À tester ici</span><svg viewBox="0 0 48 72" fill="none"><path d="M8 64c6-1 28-10 28-46"/><path d="m25 28 11-12 11 9"/></svg></span>
+            </span>
+          </div>
+        </header>
+
+        <div class="vbg-copy">
+          <p class="vbg-powered-by">Par <strong>GRAB DESIGN</strong></p>
+          <h1>CAPTUREZ LE DESIGN<br />D’UN SITE EN UN CLIC</h1>
+          <p class="vbg-sub">L’extension Chrome qui vous permet de survoler n’importe quel élément et d’en copier le code pour Claude, Cursor, Lovable ou Gemini.</p>
+          <a class="vbg-btn-white js-install" href="#prix">Obtenir l’accès Pro · <span data-price>29 €</span></a>
+        </div>
+
+        <div class="vbg-demo">
+          <iframe class="vbg-demo-video" src="https://www.loom.com/embed/e49e6a52cd1c4d1591c5e06950b68cd2?hide_owner=true&amp;hide_share=true&amp;hide_title=true&amp;hideEmbedTopBar=true" title="Démonstration de Grab Design" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <section class="pricing-strip" id="prix" aria-label="Accès Pro">
+        <p>
+          <strong>GRAB DESIGN PRO</strong>
+          <span class="pricing-before"><s data-regular-price>49 €</s><b data-price>29 €</b></span>
+          <span data-launch-offer>Tarif de lancement · 100 premières places</span>
+        </p>
+        <a class="js-install" href="#prix">Obtenir l’accès · <span data-price>29 €</span> <span>→</span></a>
+      </section>
+    </main>
+    <script src="config.js"></script>
+    <script src="site.js"></script>
+  </body>
+</html>
