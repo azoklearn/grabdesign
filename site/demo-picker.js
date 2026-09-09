@@ -97,7 +97,7 @@
       try {
         const result = this.buildExport(target);
         await this.copy(result.document);
-        this.showToast(`Copié : ${result.nodeCount} calques. Collez-le dans Claude, Cursor, Lovable ou Gemini.`, 'success');
+        this.showToast('Copié ✓', 'success');
       } catch (error) {
         this.showToast(error.message || 'La copie a échoué. Réessayez dans un onglet HTTPS.', 'error');
       }
