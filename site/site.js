@@ -69,9 +69,35 @@
     });
   });
 
+  const checkoutModal = document.querySelector('[data-checkout-modal]');
+  const closeCheckout = () => {
+    if (!checkoutModal) return;
+    checkoutModal.classList.remove('is-open');
+    checkoutModal.setAttribute('aria-hidden', 'true');
+    checkoutModal.setAttribute('inert', '');
+    document.body.classList.remove('checkout-open');
+  };
+
+  checkoutModal?.querySelectorAll('[data-checkout-close]').forEach((button) => {
+    button.addEventListener('click', closeCheckout);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeCheckout();
+  });
+
   document.querySelectorAll('.js-install').forEach((link) => {
     if (checkoutUrl) {
       link.href = checkoutUrl;
+      link.addEventListener('click', (event) => {
+        if (!checkoutModal) return;
+        event.preventDefault();
+        checkoutModal.classList.add('is-open');
+        checkoutModal.setAttribute('aria-hidden', 'false');
+        checkoutModal.removeAttribute('inert');
+        document.body.classList.add('checkout-open');
+        checkoutModal.querySelector('.checkout-close')?.focus();
+      });
       return;
     }
     link.href = '#prix';
