@@ -26,6 +26,49 @@
     node.textContent = config.launchOffer || 'Tarif de lancement · 100 premières places';
   });
 
+  const countdowns = document.querySelectorAll('.vbg-count');
+  if (countdowns.length) {
+    const duration = Math.max(0, Number(config.launchCountdownSeconds) || 13204);
+    const storageKey = `grab-design-countdown-${duration}`;
+    let deadline = 0;
+
+    try {
+      deadline = Number(sessionStorage.getItem(storageKey)) || 0;
+      if (deadline <= Date.now()) {
+        deadline = Date.now() + duration * 1000;
+        sessionStorage.setItem(storageKey, String(deadline));
+      }
+    } catch {
+      deadline = Date.now() + duration * 1000;
+    }
+
+    let countdownTimer;
+    const updateCountdown = () => {
+      const seconds = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+      const hours = String(Math.floor(seconds / 3600)).padStart(2, '0');
+      const minutes = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+      const remainingSeconds = String(seconds % 60).padStart(2, '0');
+      countdowns.forEach((node) => {
+        node.textContent = `${hours}:${minutes}:${remainingSeconds}`;
+      });
+      if (seconds === 0 && countdownTimer) clearInterval(countdownTimer);
+    };
+
+    updateCountdown();
+    countdownTimer = setInterval(updateCountdown, 1000);
+  }
+
+  document.querySelectorAll('.pricing-bg, .pricing-card-video video').forEach((video) => {
+    video.muted = true;
+    video.play().catch(() => {});
+  });
+
+  document.querySelectorAll('[data-dismiss-banner]').forEach((button) => {
+    button.addEventListener('click', () => {
+      button.closest('.vbg-banner').remove();
+    });
+  });
+
   document.querySelectorAll('.js-install').forEach((link) => {
     if (isConfigured) {
       link.href = config.chromeWebStoreUrl;
@@ -42,7 +85,7 @@
   });
 
   document.querySelectorAll('[data-support]').forEach((link) => {
-    const email = config.supportEmail || 'hello@grabdesign.ai';
+    const email = config.supportEmail || 'hello@grabdesign.app';
     link.href = `mailto:${email}`;
     link.textContent = 'Support';
   });

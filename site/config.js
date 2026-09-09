@@ -4,5 +4,6 @@ window.GRAB_DESIGN_CONFIG = {
   regularPrice: '49 €',
   launchPrice: '29 €',
   launchOffer: 'Tarif de lancement · 100 premières places',
-  supportEmail: 'hello@grabdesign.ai'
+  launchCountdownSeconds: 13204,
+  supportEmail: 'hello@grabdesign.app'
 };
